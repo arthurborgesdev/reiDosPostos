@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/arthurborgesdev/reiDosPostos/issues"
   },
-  "homepage": "https://github.com/arthurborgesdev/reiDosPostos#readme"
+  "homepage": "https://github.com/arthurborgesdev/reiDosPostos#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
