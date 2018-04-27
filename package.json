@@ -1,0 +1,19 @@
+{
+  "name": "reidospostos",
+  "version": "1.0.0",
+  "description": "App para comparar preços de combustível",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurborgesdev/reiDosPostos.git"
+  },
+  "author": "Arthur Borges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthurborgesdev/reiDosPostos/issues"
+  },
+  "homepage": "https://github.com/arthurborgesdev/reiDosPostos#readme"
+}
