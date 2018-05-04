@@ -17,16 +17,87 @@
     <div id="map"></div>
     <script>
       function initMap() {
-        var uluru = {lat: -16.690197, lng: -49.270323};
-        var map = new google.maps.Map(document.getElementById('map'), {
+
+        // Map Options
+
+        var options = {
           zoom: 15,
-          center: uluru
-        });
+          center: {lat: -16.690197, lng: -49.270323}
+        }
+
+        var map = new google.maps.Map(document.getElementById('map'), options);
+
+        // Listen for click on map
+        google.maps.event.addListener(map, 'click', function(event) {
+          addMarker({coords: event.latLng});
+        })
+        /*
+        // Add Marker
         var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
+          position: {lat: -16.8206 , lng: -48.4388},
+          map: map,
+          icon: 'https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/adobe.svg'
         });
+
+        // não funfou
+
+        var infoWindow = new google.maps.InfoWindow({
+          content:'<h1>Vianopolis AD</h1>'
+        });
+
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+        */
+
+        // Array of markers
+        var markers = [
+          {
+            coords: {lat: -16.690197, lng: -49.270323},
+            iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            content: '<h1>Goias</h1>'
+          },
+          {
+            coords:{lat: -16.190197, lng: -49.270323},
+            content: '<h1>Goias</h1>'
+          },
+          {
+            lat: -16.990197, lng: -49.270323
+          }
+        ];
+
+        // Loop through markers
+        for(var i =0; i < markers.length; i++){
+          addMarker(markers[i]);
+        }
+
+        // Add Marker Function
+        function addMarker(props) {
+          var marker = new google.maps.Marker({
+            position: props.coords,
+            map: map,
+            //icon: props.iconImage
+          });
+
+          // Check for custom Icon
+          if(props.iconImage) {
+            // Set icon image
+            marker.setIcon(props.iconImage);
+          }
+
+          // Check content
+          if (props.content) {
+            var infoWindow = new google.maps.InfoWindow({
+              content: props.content
+            });
+
+            marker.addListener('click', function() {
+              infoWindow.open(map, marker);
+            });
+          }
+        }
       }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaXpcQuDjL-6ncuwLeO2PzdjLB5Ys5RZg&callback=initMap">
@@ -38,3 +109,6 @@
 <!-- Google Geolocation API key
 
 AIzaSyBBhWRQ3DSBwfXxpdGqZrb744sla6j5pDM -->
+<!-- Google Places API key
+
+AIzaSyD0saJB5tJV3_N97JD7EfA2iAx4PJM6h3I -->
