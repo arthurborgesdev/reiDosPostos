@@ -4,7 +4,6 @@
     <style>
        #map {
         height: 100%;
-        /* width: 100%; */
        }
        html, body {
          height: 100%;
@@ -16,10 +15,18 @@
   <body>
     <div id="map"></div>
     <script>
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          //$("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
+          console.log(position.coords.latitude);
+          alert(position.coords.longitude);
+        });
+      }
+
       function initMap() {
 
         // Map Options
-
         var options = {
           zoom: 15,
           center: {lat: -16.690197, lng: -49.270323}
@@ -31,24 +38,6 @@
         google.maps.event.addListener(map, 'click', function(event) {
           addMarker({coords: event.latLng});
         })
-        /*
-        // Add Marker
-        var marker = new google.maps.Marker({
-          position: {lat: -16.8206 , lng: -48.4388},
-          map: map,
-          icon: 'https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/adobe.svg'
-        });
-
-        // não funfou
-
-        var infoWindow = new google.maps.InfoWindow({
-          content:'<h1>Vianopolis AD</h1>'
-        });
-
-        marker.addListener('click', function() {
-          infoWindow.open(map, marker);
-        });
-        */
 
         // Array of markers
         var markers = [
