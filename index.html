@@ -16,15 +16,15 @@
     <div id="map"></div>
     <script>
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          //$("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
-          console.log(position.coords.latitude);
-          alert(position.coords.longitude);
-        });
-      }
-
       function initMap() {
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            //$("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
+            console.log(position.coords.latitude);
+            alert(position.coords.longitude);
+          });
+        }
 
         // Map Options
         var options = {
