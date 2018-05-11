@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/arthurborgesdev/reiDosPostos#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "ssl-express-www": "^2.0.0"
   }
 }

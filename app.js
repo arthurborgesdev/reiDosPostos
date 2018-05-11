@@ -1,6 +1,8 @@
 const express = require('express')
+var secure = require('ssl-express-www');
 const app = express()
 
+app.use(secure);
 //app.use(express.static(__dirname + '/public'));
 
 app.get("/", function(req, res) {
